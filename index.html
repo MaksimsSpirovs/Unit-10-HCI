@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="mystyle.css">
+  <title>AMAP Shopping Centre</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the side navigation */
+    .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: -200px; /* Initially off-screen */
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s; /* Add transition for smooth animation */
+    }
+
+    /* Side navigation links */
+    .sidenav a {
+      color: white;
+      padding: 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color on hover */
+    .sidenav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Style the content */
+    .content {
+      margin-left: 0;
+      padding-left: 20px;
+      transition: margin-left 0.5s; /* Add transition for smooth content movement */
+    }
+
+    /* Button to toggle the side navigation */
+    #toggleBtn {
+      position: fixed;
+      top: 1%;
+      left: 11%;
+      background-image: url('images/menu.png'); /* Set your image placeholder path */
+      background-size: cover;
+      background-color: transparent;
+      width: 60px;
+      height: 60px;
+      border: none;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    #toggleBtn1 {
+      position: fixed;
+      top: 1%;
+      right: 2%;
+      background-image: url('images/information.png'); /* Set your image placeholder path */
+      background-size: cover;
+      background-color: transparent;
+      width: 60px;
+      height: 60px;
+      border: none;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    /* Centered responsive search bar */
+    .search-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .search-box {
+      width: 70%;
+      padding: 10px;
+      border: 1px solid #ddd; /* Add border */
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* Special Offers text and images */
+    .special-offers {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .special-offers-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .offer-images {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+
+    .offer-image {
+      flex: 0 0 250px;
+      margin-right: 10px;
+      background-color: antiquewhite; /* Placeholder background color */
+    }
+
+    .offer-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<button id="toggleBtn" onclick="toggleNav()"></button>
+	<a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/AMAP%20CoI%20Page.html">
+		<button id="toggleBtn1" onclick="placeholder()"></button>
+	</a>
+
+<div class="sidenav" id="mySidenav">
+  <a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/AMAP%20Parking%20Page.html" onclick="closeNav()">Parking</a>
+  <a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/AMAP%20Shopping%20Page.html" onclick="closeNav()">Shopping</a>
+  <a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/AMAP%20Food%20Page.html" onclick="closeNav()">Food</a>
+  <a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/AMAP%20Banks%20Page.html" onclick="closeNav()">Banks</a>
+  <a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/AMAP%20Map%20Page.html" onclick="closeNav()">Map</a>
+</div>
+
+<div class="content">
+  <img src="images/Logo.png" alt="Logo" class="Logo">
+
+  <!-- Centered responsive search bar -->
+  <div class="search-container">
+    <input type="text" class="search-box" placeholder="Search...">
+    <!-- Add any additional search button or icon if needed -->
+  </div>
+
+  <!-- Special Offers text and images -->
+  <div class="special-offers">
+    <div class="special-offers-text">Special Offers %</div>
+    <div class="offer-images">
+      <div class="offer-image">
+        <img src="images/lloyds.png" alt="ad" class="ad">
+      </div>
+      <div class="offer-image">	
+        <img src="images/chipotle.png" alt="ad" class="ad">
+      </div>
+      <div class="offer-image">
+        <img src="images/jd.png" alt="ad" class="ad">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleNav() {
+    var sideNav = document.getElementById("mySidenav");
+    var content = document.querySelector(".content");
+    if (sideNav.style.left === "0px") {
+      sideNav.style.left = "-200px";
+      content.style.marginLeft = "0";
+    } else {
+      sideNav.style.left = "0";
+      content.style.marginLeft = "200px";
+    }
+  }
+
+  function closeNav() {
+    var sideNav = document.getElementById("mySidenav");
+    var content = document.querySelector(".content");
+    sideNav.style.left = "-200px";
+    content.style.marginLeft = "0";
+  }
+
+  function placeholder() {
+    // Placeholder function for the second button
+  }
+</script>
+
+</body>
+</html>

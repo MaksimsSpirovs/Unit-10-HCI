@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+.Logo {
+		display: block;
+	height: 50%;
+	width: 20%;
+    margin-left: auto;
+    margin-right: auto;	
+	background-color:antiquewhite;
+}
+/* Style the header */
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Adjust the side navigation */
+.sidenav {
+  width: 250px;
+  background-color: #222;
+}
+
+/* Style the content */
+.content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* Responsive design */
+@media only screen and (max-width : 1599px ){
+  .sidenav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}
+
+html {
+	background-color: antiquewhite;
+}
+.search-box {
+	background-color: #cfc8b8;
+}

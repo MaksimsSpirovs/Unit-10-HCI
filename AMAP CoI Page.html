@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="mystyleParking.css">
+    <title>AMAP Centre Of Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="translate.js"></script>
+    <style>
+        * {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #cfc8b8;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative; /* Add this line for positioning */
+}
+
+/* Style the topnav links */
+.topnav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the content */
+.content {
+    background-color: antiquewhite;
+    padding: 10px;
+    border: 3px solid black;
+    margin-bottom: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center text */
+}
+
+.home {
+    height: 50px;
+    width: 70px;
+    cursor: pointer;
+    order: -1; /* This line moves the home button to the beginning of the flex container */
+}
+
+.Text {
+    text-align: center;
+    margin: 0 auto; /* This centers the text in the middle */
+    flex-grow: 1; /* This allows the text to take up the remaining space in the flex container */
+}
+
+.translate {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.Map {
+    height: 250px;
+    width: 250px;
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+
+.Narration {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .Text {
+        margin-right: 0;
+    }
+}
+
+/* Style the language buttons */
+.LanguageButtons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <h1 class="Text translate" data-original="Center Of Information Page" onmouseover="speakText('Center Of Information Page')" onmouseout="stopSpeaking()">Center Of Information Page</h1>
+		<a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/index.html">
+			<img src="images/homeButton.png" alt="homeButton" class="home">
+		</a>
+    </div>
+
+    <div class="content">
+    <!-- English Text -->
+    <h1 class="translate" data-original="For information regarding disabled lift access or disability-friendly areas, please consult the map!">For information regarding disabled lift access or disability-friendly areas, please consult the map!</h1>
+		<!--English Text -->
+		<h1 class="translate" data-original="Disabled friendly spots will be marked with: " onmouseover="speakText('Disabled friendly spots will be marked with')" onmouseout="stopSpeaking()">Disabled friendly spots will be marked with: </h1>
+
+		<img src="images/Disabled.png" alt="Disabled" class="Disabled tran">
+		<h1 class="translate" data-original="Fire Exits spots will be marked with: " onmouseover="speakText('Fire Exits spots will be marked with')" onmouseout="stopSpeaking()">Fire Exits spots will be marked with: </h1>
+		<img src="images/FireExit.png" alt="FireExit" Class="FireExit">
+        <h1 class="translate" data-original="Access The Map!">
+            Access The Map!
+        </h1>
+		<a href="file://pl-file-1.students.ncclondon.ac.uk/students/19144350/Documents/.YEAR2/Unit%2010%20-%20Human%20Computer%20Interaction/Assignment%202/HCIDreamWeaverWork/AMAP%20Map%20Page.html">
+		<button>
+              <img src="images/Map.png" alt="Map" class="Map">
+        </button>
+		</a>
+		<h3 class="translate" data-original="If you require voice narration, please press the button below!" onmouseover="speakText('If you require voice narration, please press the button below!')" onmouseout="stopSpeaking()"> If you require voice narration, please press the button below!
+		</h3>
+		<button>
+			<img src="images/Toggle.png" alt="Toggle Button" id="toggleButton" onclick="toggleTTS()">
+	    </button>
+<h3 class="translate" data-original="Please select your language below!" onmouseover="speakText('>Please select your language below!')" onmouseout="stopSpeaking()">Please select your language below!
+</h3>
+    <div class="LanguageButtons">
+        <button onclick="translateTo('en')">
+            <img src="images/English.png" alt="English" Class="English">
+        </button>
+        <button onclick="translateTo('fr')">
+            <img src="images/French.png" alt="French" Class="French">
+        </button>
+        <button onclick="translateTo(	'es')">
+            <img src="images/Spanish.png" alt="Spanish" Class="Spanish">
+        </button>
+        <button onclick="translateTo('ru')">
+            <img src="images/Russian.png" alt="Russian" Class="Russian">
+        </button>
+    </div>
+    </div>
+<script>
+const translations = {
+    'en': {
+      'For information regarding disabled lift access or disability-friendly areas, please consult the map!': 'For information regarding disabled lift access or disability-friendly areas, please consult the map!',
+      'Disabled friendly spots will be marked with: ': 'Disabled friendly spots will be marked with: ',
+      'Fire Exits spots will be marked with: ': 'Fire Exits spots will be marked with: ',
+	  'Access The Map!': 'Access The Map!',
+	  'If you require voice narration, please press the button below!': 'If you require voice narration, please press the button below!',
+	  'Please select your language below!': 'Please select your language below!',
+	  'Center Of Information Page': 'Center Of Information Page'
+    },
+    'fr': {
+      'For information regarding disabled lift access or disability-friendly areas, please consult the map!': 'Pour obtenir des informations sur l\'accès aux ascenseurs pour personnes handicapées ou sur les zones adaptées aux personnes handicapées, veuillez consulter la carte!',
+      'Disabled friendly spots will be marked with: ': 'Les emplacements adaptés aux personnes handicapées seront signalés par : ',
+      'Fire Exits spots will be marked with: ': 'Les emplacements des sorties de secours seront marqués par : ',
+	  'Access The Map!': 'Accédez à la carte !',
+	  'If you require voice narration, please press the button below!': 'Si vous avez besoin d\'une narration vocale, veuillez appuyer sur le bouton ci-dessous !',
+	  'Please select your language below!': 'Veuillez sélectionner votre langue ci-dessous !',
+	  'Center Of Information Page': 'Page du centre d\'information'
+    },
+    'es': {
+      'For information regarding disabled lift access or disability-friendly areas, please consult the map!': 'Para obtener información sobre el acceso a ascensores para personas con discapacidades o áreas amigables para discapacitados, consulte el mapa!',
+      'Disabled friendly spots will be marked with: ': 'Los puntos amigables para discapacitados estarán marcados con: ',
+      'Fire Exits spots will be marked with: ': 'Los puntos de salidas de incendios estarán marcados con: ',
+	  'Access The Map!': '¡Accede al mapa!',
+	  'If you require voice narration, please press the button below!': 'Si necesita una narración de voz, presione el botón a continuación.',
+	  'Please select your language below!': '¡Seleccione su idioma a continuación!',
+	  'Center Of Information Page': 'Página del centro de información'
+    },
+    'ru': {
+      'For information regarding disabled lift access or disability-friendly areas, please consult the map!': 'Для получения информации о доступе к инвалидным лифтам или областям, дружественным к инвалидам, пожалуйста, посмотрите на карту!',
+      'Disabled friendly spots will be marked with: ': 'Дружественные места для инвалидов будут отмечены: ',
+      'Fire Exits spots will be marked with: ': 'Места пожарных выходов будут отмечены: ',
+	  'Access The Map!': 'Доступ к карте!',
+	  'If you require voice narration, please press the button below!': 'Если вам требуется голосовое сопровождение, нажмите кнопку ниже!',
+	  'Please select your language below!': 'Пожалуйста, выберите свой язык ниже!',
+	  'Center Of Information Page': 'Страница информационного центра'
+    }
+};
+
+  let ttsEnabled = false; // Variable to track if text-to-speech is enabled
+
+  // Function to toggle text-to-speech on button click
+  function toggleTTS() {
+    ttsEnabled = !ttsEnabled; // Toggle the variable
+
+    // Update the image button state or add your own logic
+    const toggleButton = document.getElementById('toggleButton');
+    toggleButton.src = ttsEnabled ? 'images/Toggle.png' : 'images/Toggle.png';
+
+    // Stop speaking if the toggle is turned off
+    if (!ttsEnabled) {
+      stopSpeaking();
+    }
+  }
+
+  // Function to speak the provided text
+  function speakText(text) {
+    if (ttsEnabled) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  }
+
+  // Function to stop speaking
+  function stopSpeaking() {
+    speechSynthesis.cancel();
+  }
+// Function to translate the text content based on the selected language
+function translateTo(language) {
+  // Get all elements with the class 'translate'
+  const elementsToTranslate = document.querySelectorAll('.translate');
+
+  // Loop through each element and update its text content based on the selected language
+  elementsToTranslate.forEach(element => {
+    const originalText = element.getAttribute('data-original');
+    element.textContent = translations[language][originalText];
+  });
+
+  // Additional logic to handle specific elements or other updates after translation
+  // ...
+
+  // Speak the first translated text when language is changed, you can adjust this based on your needs
+  speakText(elementsToTranslate[0].textContent);
+}
+</script>
+</body>
+</html>
